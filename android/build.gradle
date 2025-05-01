@@ -5,7 +5,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-         maven{
+        maven {
             allowInsecureProtocol = true
             url 'https://www.jitpack.io'
         }
@@ -20,7 +20,7 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
-        maven{
+        maven {
             allowInsecureProtocol = true
             url 'https://www.jitpack.io'
         }
@@ -31,8 +31,9 @@ apply plugin: 'com.android.library'
 
 apply from: "./resolve_dependencies.gradle"//解决编译导入Flutter相关的包报错问题
 android {
-    compileSdkVersion 34
+    namespace = 'com.imin.printer.imin_printer'
 
+    compileSdkVersion 34
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -49,9 +50,9 @@ android {
     testOptions {
         unitTests.all {
             testLogging {
-               events "passed", "skipped", "failed", "standardOut", "standardError"
-               outputs.upToDateWhen {false}
-               showStandardStreams = true
+                events "passed", "skipped", "failed", "standardOut", "standardError"
+                outputs.upToDateWhen { false }
+                showStandardStreams = true
             }
         }
     }
